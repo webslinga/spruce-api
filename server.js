@@ -18,7 +18,8 @@ app.post("/event/add", async (request, response) => {
     try {
         let event = new Event();
         event.title = request.body.title;
-        event.date = new Date(request.body.date);
+        event.date = request.body.date;
+        event.time = request.body.time;
         event.location = request.body.location;
         event.type = request.body.type;
         event.featured = request.body.featured;
