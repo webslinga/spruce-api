@@ -33,9 +33,9 @@ app.post("/event/add", async (request, response) => {
 
 app.put("/event/update/:id", async (request, response) => {
     try {
-        var person = await Event.findById(request.params.id).exec();
-        person.set(request.body);
-        var result = await person.save();
+        var event = await Event.findById(request.params.id).exec();
+        event.set(request.body);
+        var result = await event.save();
         response.status(200).send(result);
     } catch (error) {
         response.status(500).send(error);
