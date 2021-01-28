@@ -61,6 +61,15 @@ app.get("/events", async (request, response) => {
     }
 });
 
+app.get("/event/:id", async (request, response) => {
+    try {
+        var result = await Event.findById({ _id: request.params.id }).exec();
+        response.status(200).send(result);
+    } catch (error) {
+        response.status(500).send(error);
+    }
+});
+
 app.listen(3005, function() {
   console.log('API running on port 3005...');
 });
